@@ -1,14 +1,14 @@
 #include "my_lib.h"
 
-int bienvenida (void){
+void bienvenida (void){
 
     printf("\n\n\t\t************Bienvenido al final de Info 1************\n");
-    return 0;
 }
 
-int cargadefichas (char *articulo, articulos_t *articulos){
+int cargadefichas (articulos_t *articulos){
 
     int i, articulo_index, sucursal, opc;
+    char articulo[90] = {0};
 
     do
     {
@@ -38,19 +38,21 @@ int cargadefichas (char *articulo, articulos_t *articulos){
 
 }
 
-int impfichas (char *articulo, articulos_t *articulos){
+int impfichas (articulos_t *articulos){
 
     int i=0;
     printf("\nArticulo\tSucursal 1\tSucursal 2\tSucursal 3\tTotal\n");
     while(i< CANT_ARTICULOS && articulos[i].descripcion[0]){
-        printf("%s\t%d\t%d\t%d\t%d\n", articulos[i].descripcion, articulos[i].cantidad_sucursal[SUCURSAL_1], articulos[i].cantidad_sucursal[SUCURSAL_2], articulos[i].cantidad_sucursal[SUCURSAL_3],articulos[i].total);
+        printf("%s\t%9d\t%9d\t%9d\t%9d\n", articulos[i].descripcion, articulos[i].cantidad_sucursal[SUCURSAL_1], articulos[i].cantidad_sucursal[SUCURSAL_2], articulos[i].cantidad_sucursal[SUCURSAL_3],articulos[i].total);
         i++;
     }
 
     return 0;
 }
 
-int ordenamiento (char *articulo, articulos_t *articulos){
+int ordenamiento (articulos_t *articulos){
+
+    char articulo[90] ={0};
 
     int  opc=0, i, articulo_index, sucursal;
 
@@ -84,18 +86,13 @@ int ordenamiento (char *articulo, articulos_t *articulos){
         
     }
 
-    printf("\n\n\t\t###################################");
-    printf("\n\t\t##############ORDENADO################");
-    printf("\n\t\t################################### \n\n");
-
-    i = 0;
-    printf("\nArticulo\tSucursal 1\tSucursal 2\tSucursal 3\tTotal\n");
-    while (i < CANT_ARTICULOS && articulos[i].descripcion[0])
-    {
-        printf("%9s\t%9d\t%9d\t%9d\t%9d\n", articulos[i].descripcion, articulos[i].cantidad_sucursal[SUCURSAL_1], articulos[i].cantidad_sucursal[SUCURSAL_2], articulos[i].cantidad_sucursal[SUCURSAL_3], articulos[i].total);
-        i++;
-    }
-
     return 0;
 
+}
+
+void separador (void){
+
+    printf("\n\n\t\t\t###################################");
+    printf("\n\t\t############## FICHAS ORDENADAS ################");
+    printf("\n\t\t\t################################### \n\n");
 }

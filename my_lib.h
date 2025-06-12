@@ -18,12 +18,14 @@ typedef struct {
     int total;
 }articulos_t;
 
-int bienvenida (void);
+void bienvenida (void);
 
-int cargadefichas (char *articulo, articulos_t *articulos);
+int cargadefichas (articulos_t *articulos);
 
-int impfichas (char *articulo, articulos_t *articulos);
+int impfichas (articulos_t *articulos);
 
-int ordenamiento (char *articulo, articulos_t *articulos);
+int ordenamiento (articulos_t *articulos);
+
+void separador (void);
 
 #endif
